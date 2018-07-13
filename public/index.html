@@ -1,0 +1,148 @@
+<html ng-app="opnFvApp">
+<head>
+    <title>API Creation Stats</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="core.js"></script>
+    <script src="controllers/getAPIStatsController.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.2/Chart.bundle.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({dateFormat: 'yy/mm/dd'});
+            $("#datepicker2").datepicker({dateFormat: 'yy/mm/dd'});
+            $("#datepicker3").datepicker({dateFormat: 'yy/mm/dd'});
+        });
+    </script>
+</head>
+<body ng-controller="mainController">
+<div class="container">
+
+    <div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h2> Logs View Dashboard</h2>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#menu1">Log Viewer</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <div id="menu1" class="tab-pane fade in active">
+                <div class="row">
+                    <div class="alert alert-info" role="alert">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <p style="font-size:24px;">Fetch Data from :
+                                    <input type="text" id="datepicker2"> - to -
+                                    <input type="text" id="datepicker3">
+                                </p>
+                            </div>
+
+                            <div class="col-md-2">
+                                <p style="font-size:24px;">
+                                    <button ng-click="getLogsFromEAPI()"
+                                            style="margin-left:10px; width:100px;">Fetch
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info" role="alert" ng-if='isGetAPICreationStatsWithIntervalLoading==true'>
+                        <p style="text-align:center; font-size:24px;">
+                            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"> </span> Fetching...
+                        </p>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert" ng-if="isGetAPICreationStatsWithIntervalError_Message"
+                         style="text-align:center; font-size:24px;">
+                        {{isGetAPICreationStatsWithIntervalError_Message}}
+                    </div>
+                </div>
+
+
+
+
+        <div class="row">
+            <div style="width:1000px">
+		        <canvas id="chart1"></canvas>
+	        </div>
+        </div>
+
+
+
+      <div class="row">
+
+        <div class="panel-group" id="accordion" ng-if='logstreamLoading==false'>
+
+          <div class="panel panel-default" ng-repeat="logLine in logsData">
+
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2{{$index}}">
+                {{$index+1}}. {{logLine.id}} - {{logLine.ipAddress}} - {{logLine.requestMethod}} {{logLine.requestType}}{{logLine.requestTypeVersion}}
+                {{logLine.resourceURL}}</a>
+              </h4>
+            </div>
+            <div id="collapse2{{$index}}" class="panel-collapse collapse">
+              <div class="panel-body">
+                   <table class="table">
+                    <thead>
+                      <tr>
+                        <th>LogStream Id</th>
+                        <th>{{logLine.id}}</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Log DateTime</td>
+                        <td>{{logLine.dateTime}}</td>
+                      </tr>
+                      <tr>
+                        <td>IP Address</td>
+                        <td>{{logLine.ipAddress}}</td>
+                      </tr>
+                      <tr>
+                        <td>Request Method</td>
+                        <td>{{logLine.requestMethod}}</td>
+                      </tr>
+                        <tr>
+                        <td>Request Type</td>
+                        <td>{{logLine.requestType}}</td>
+                      </tr>
+                        <tr>
+                        <td>Request Type Version</td>
+                        <td>{{logLine.requestTypeVersion}}</td>
+                      </tr>
+                      <tr>
+                        <td>Request Resource URL</td>
+                        <td>{{logLine.resourceURL}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

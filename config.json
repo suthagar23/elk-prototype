@@ -1,0 +1,17 @@
+{
+    "Common" : {
+        "host" : "127.0.0.1",
+        "mongoDBHost" : "mongodb://localhost",
+        "mongoDBName" : "Wiki9"
+    },
+    "EAPIMapper" : {
+        "port" : 5002,
+        "logEnabled" : true,
+        "debug" : true
+    },
+    "ElasticAPI" : {
+        "port" : 5001,
+        "logEnabled" : true,
+        "debug" : true
+    }
+}

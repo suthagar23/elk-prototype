@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+.glyphicon-refresh-animate {
+  -animation: spin .7s infinite linear;
+  -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.userTriggers {
+  font: 12px/1 'Open Sans', sans-serif;
+  color: #555;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.userTriggers .breadcrumbs{
+ margin-bottom: 5px;
+}
+
+.userTriggers ul {
+  list-style: none;
+  margin-bottom: 0px;
+  padding-left: 0px;
+}
+
+.cf:before, .cf:after {
+  content: ' ';
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+
+.userTriggers .title {
+  padding: 50px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.userTriggers .inner {
+  margin: 0 auto;
+}
+
+.userTriggers .breadcrumbs {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.inner .userName {
+    width: 470px;
+    max-width: 550px;
+}
+
+.inner .userName a{ 
+    text-align: left;
+    padding-top: 17px;
+    color: #000000;
+    font-weight: normal;
+}
+
+.inner .complete {
+    background-color: #09ac68;
+}
+
+.inner .incomplete {
+    background-color: #ac0909;
+}
+
+.breadcrumbs ul {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.breadcrumbs li {
+  float: left;
+  width: 14%;
+  max-width: 200px;
+}
+
+.breadcrumbs a {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  padding-right: 0 !important;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.breadcrumbs a.active {
+  color: #777;
+  background-color: #fafafa;
+}
+
+.breadcrumbs a span:first-child {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  margin-right: 5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000000;
+}
+
+.breadcrumbs a.active span:first-child {
+  color: #fff;
+  border-color: #777;
+  background-color: #777;
+}
+
+.breadcrumbs a:before,
+.breadcrumbs a:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 1;
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 26px solid transparent;
+  border-bottom: 26px solid transparent;
+  border-left: 16px solid transparent;
+}
+
+.breadcrumbs a:before {
+  margin-left: 1px;
+  border-left-color: #d5d5d5;
+}
+
+.breadcrumbs .userName a:after {
+    border-left-color: #fff;
+  }
+
+.breadcrumbs .complete a:after {
+  border-left-color: #09ac68;
+}
+
+.breadcrumbs .incomplete a:after {
+    border-left-color: #ac0909;
+  }
+
+.breadcrumbs li:last-child a:before,
+.breadcrumbs li:last-child a:after {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .breadcrumbs a {
+    padding: 15px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 26px;
+    border-bottom-width: 26px;
+    border-left-width: 13px;
+  }
+}
+
+@media (max-width: 620px) {
+  .breadcrumbs a {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 22px;
+    border-bottom-width: 22px;
+    border-left-width: 11px;
+  }
+}
+
+@media (max-width: 520px) {
+  .breadcrumbs a {
+    padding: 5px;
+  }
+
+  .breadcrumbs a:before,
+  .breadcrumbs a:after {
+    border-top-width: 16px;
+    border-bottom-width: 16px;
+    border-left-width: 8px;
+  }
+
+  .breadcrumbs li a span:first-child {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .breadcrumbs li a span:last-child {
+    display: none;
+  }
+}
+
+.userTriggerTitle { 
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.stats-number-panel {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.stats-number-panel .number {
+    font-size: 60px;
+}
+
+.output-container {
+    border: 1px solid #cccccc;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+input {
+    padding-left: 10px;
+}
