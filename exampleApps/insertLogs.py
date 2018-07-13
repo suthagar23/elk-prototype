@@ -5,7 +5,7 @@ from requests import post
 import json
 
 config = None
-with open("../config.json", 'r+') as f:
+with open("./config.json", 'r+') as f:
     config = json.load(f)
 EAPI_PORT = config["ElasticAPI"]["port"]
 MAPPER_PORT = config["EAPIMapper"]["port"]

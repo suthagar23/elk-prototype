@@ -2,7 +2,7 @@
     "Common" : {
         "host" : "127.0.0.1",
         "mongoDBHost" : "mongodb://localhost",
-        "mongoDBName" : "opnFvDemo-1"
+        "mongoDBName" : "Wiki6"
     },
     "EAPIMapper" : {
         "port" : 5002,
